@@ -38,5 +38,6 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2",
     "uuid": "^9.0.0"
-  }
+  },
+  "keywords": ["express", "websockets", "node.js", "mongo"]
 }
