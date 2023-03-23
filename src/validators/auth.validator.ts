@@ -6,3 +6,8 @@ export const loginValidator = [
   body('password', 'The password is required').notEmpty(),
   validateFields,
 ];
+
+export const googleValidator = [
+  body('id_token', 'google token is required').notEmpty(),
+  validateFields,
+];

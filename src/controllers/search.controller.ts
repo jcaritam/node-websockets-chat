@@ -30,9 +30,6 @@ const searchUser = async (term: string, res: Response) => {
   return res.status(HTTP_STATUS_OK).json({ results: users });
 };
 
-
-
-
 export const search = async (
   req: IRequest,
   res: Response,
