@@ -78,14 +78,32 @@ export const googleSignIn = async (
       });
     }
 
-    const token = await generateJWT(user.id);
-
+    const token = await generateJWT(user?.id);
+    console.log({ token });
     res.status(HTTP_STATUS_OK).json({
       user,
       token,
     });
   } catch (e) {
     console.log(`Error: ${e}`);
+    next(e);
+  }
+};
+
+export const refreshToken = async (
+  req: IRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  const { user } = req;
+  try {
+    const token = await generateJWT(user?.uid!);
+    res.status(HTTP_STATUS_OK).json({
+      user,
+      token,
+    });
+  } catch (e) {
+    console.error(e);
     next(e);
   }
 };

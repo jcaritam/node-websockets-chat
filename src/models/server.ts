@@ -1,4 +1,4 @@
-import http from 'http'
+import http from 'http';
 import express from 'express';
 import morgan from 'morgan';
 import { config } from 'dotenv';
@@ -13,18 +13,17 @@ config();
 export class Server {
   port;
   app;
-  server
-  io
+  server;
+  io;
   constructor() {
     this.app = express();
     this.port = process.env.PORT || 3000;
-    this.server = http.createServer(this.app)
-    this.io = new SocketServer(this.server)
+    this.server = http.createServer(this.app);
+    this.io = new SocketServer(this.server);
     this.init();
   }
 
   init() {
-
     this.app.use(morgan('dev'));
     this.app.use(cors());
 
@@ -34,7 +33,7 @@ export class Server {
 
     this.routes();
 
-    this.sockets()
+    this.sockets();
   }
 
   middlewares() {
@@ -52,7 +51,7 @@ export class Server {
   }
 
   sockets() {
-    this.io.on('connection', socketController)
+    this.io.on('connection', socketController);
   }
 
   listen() {
