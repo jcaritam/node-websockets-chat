@@ -4,6 +4,7 @@ import { ERoles } from './role.model';
 export interface IUser extends Document {
   _id?: ObjectId;
   uid?: string;
+  id?: string;
   name: string;
   email: string;
   password: string;
