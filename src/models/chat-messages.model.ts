@@ -23,7 +23,9 @@ export class ChatMessages {
   }
 
   get last10(): Message[] {
-    return this.messages.splice(1, 10);
+    // return this.messages.splice(0, 10);
+    const start = Math.max(this.messages.length - 10, 0);
+    return this.messages.slice(start);
   }
 
   get userArr(): IUser[] {
